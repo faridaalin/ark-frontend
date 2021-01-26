@@ -19,41 +19,33 @@ $ cd api/
 > npm run develop
 ```
 
-### User credentials
-
-```bash
-email: admin@admin.com
-username: admin
-password: Pass1234
-```
-
 # Semester project 2
 
-To create an e-commerce website that has an Admin and Front-End respectively. The Front-End should be responsive and the website is to be populated by an API supplied by Noroff. 
+To create an e-commerce website that has an Admin and Front-End respectively. The Front-End should be responsive and the website is to be populated by an API supplied by Noroff.
 
 ## Brief
 
-You are to build an e-commerce website. You can choose the theme of your website. It should follow the site architect described below. 
+You are to build an e-commerce website. You can choose the theme of your website. It should follow the site architect described below.
 
 You must design it using your favourite tool. Build the front-end and admin pages to update and delete products.
 
 You must apply all that you have learned in:
 
-- Interaction Design, 
+- Interaction Design,
 - Design 2.
 - JavaScript 2
 
 It must have a good user experience and a good ui design, following today's trends and design patterns.
 
-Build a front-end with a homepage, product category list page and product detail page. 
+Build a front-end with a homepage, product category list page and product detail page.
 
-Build admin pages to update and delete products. 
+Build admin pages to update and delete products.
 
 > Building a checkout and payment system is not a part of the project.
 
 ### Level 1 is required.
 
-### Level 2 and 3 are optional. 
+### Level 2 and 3 are optional.
 
 # Level 1 Process (Required)
 
@@ -62,30 +54,34 @@ Build admin pages to update and delete products.
 ### Home page
 
 The home page must include:
+
 - A hero banner with an image that is uploaded to Strapi.
 - A list of featured products.
-    - In Strapi each product must have a featured flag that can be turned on or off. When the flag is on, the product shall be displayed on the homepage.
+  - In Strapi each product must have a featured flag that can be turned on or off. When the flag is on, the product shall be displayed on the homepage.
 
 ### Products page
 
 The products page must include:
+
 - A list of all products added to Strapi. Each product must display its title, price and image. The product shall link to its products detail page.
-- A search text box.  When searching, the products   that include the searched text in their **title** or **description** shall be listed.
+- A search text box. When searching, the products that include the searched text in their **title** or **description** shall be listed.
 
 ### Product details page
 
 The product details page must include:
+
 - the product title,
 - the product description,
 - the product image,
 - the product’s price,
 - an add to cart button.
 
-### Cart/Basket page 
+### Cart/Basket page
 
-The cart/basket page must display a list of all products added to cart.  Load the items that have been added to local storage and display them on the page.
+The cart/basket page must display a list of all products added to cart. Load the items that have been added to local storage and display them on the page.
 
 Each product in the cart must display:
+
 - the product title,
 - the product’s price,
 - a link to the product view page, and optionally display the product image,
@@ -95,9 +91,10 @@ After the list of products, display the total price of all the products in the c
 > **Important:** the cart page is not a checkout page. No payments or user details are required to be taken.
 
 ## Admin section
+
 The admin section must include the following features.
 
-### Login/Logout 
+### Login/Logout
 
 Create an admin login form that allows administrator users to login.
 
@@ -107,7 +104,7 @@ Create an admin login form that allows administrator users to login.
 
 ### Add/edit products
 
-Create form(s) that allow products to be added and edited.  The form must allow the user to toggle whether a product is featured.
+Create form(s) that allow products to be added and edited. The form must allow the user to toggle whether a product is featured.
 
 #### Product images
 
@@ -148,13 +145,13 @@ Allow products to be deleted. Before a product is deleted you must display a con
 - All the customer-facing and admin pages must be fully responsive.
 - Use appropriate names for Sass classes and folders.
 - All code should be properly formatted and arranged with sensible variable and function names. Use modules (imports/exports) to organise your code.
-Rules
+  Rules
 
 ## Submission
 
 ### Week 1
 
-- Gant chart or KanBan board with todos in appropriate lanes(Trello or Notion). 
+- Gant chart or KanBan board with todos in appropriate lanes(Trello or Notion).
 - Wireframes.
 
 ### Week 2
@@ -167,9 +164,8 @@ Rules
 - To Moodle submit PDF with a GitHub Repository URL inside of it. If Moodle forces you to put a ZIP, put the PDF inside the ZIP.
 - No deployment is required, It will be tested on a local development environment.
 
-## Time 
+## Time
 
 5 Weeks
 
 > Deadline: 11 December 2020 at 23:59.
-

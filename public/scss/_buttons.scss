@@ -1,0 +1,36 @@
+.btn {
+    border-radius: 0;
+    font-weight: getWeight(bold);
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    padding: 0 21px;
+    font-size: 13px;
+    font-family: 'Barlow', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .edit-btn {
+    height: 35px;
+    line-height: 35px;
+    font-size: 0.7rem;
+  }
+  
+  .content-btn {
+    font-size: 0.7rem;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 60px;
+  
+    @media all and (min-width: 768px) {
+      height: 35px;
+      line-height: 35px;
+      padding: 0 35px;
+    }
+  }

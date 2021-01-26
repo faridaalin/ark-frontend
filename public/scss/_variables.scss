@@ -1,0 +1,43 @@
+$box-shadow: 0 6px 12px #0000000f;
+
+@mixin border($color) {
+  border: 3px solid $color;
+}
+
+$font-weight: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  extra-bold: 800,
+);
+
+@function getWeight($weight) {
+  @return map-get($font-weight, $weight);
+}
+
+$colors: (
+  primary: #67EBB4,
+  secondary: #151315,
+  green-010: rgba(20, 62, 86, 0.2),
+  green-050: rgba(7, 7, 7, 0.8),
+  green-100: #e9f9f6,
+  green-200: #dde7ea,
+  green-300: #c2ded8,
+  green-400: #e9f9f6,
+  green-500: #a5d4c4,
+  green-600: #a3b8c1,
+  white-100: #ffffff,
+  white-200: #f5f5f5,
+  white-300: #ebebeb,
+  white-400: #e0e0e0,
+  black-100: #2e3338,
+  black-200: #1c1f22,
+  black-300: #090a0b,
+  red-300: #E93F33,
+);
+
+@function getColour($color) {
+  @return map-get($colors, $color);
+}
+

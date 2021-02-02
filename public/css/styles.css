@@ -10840,6 +10840,18 @@ a:hover {
 .herobanner__banner {
   max-width: 60ch;
 }
+.herobanner .hero-loader {
+  background: #030608;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .herobanner > * {
   z-index: 10;

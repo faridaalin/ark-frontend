@@ -1,4 +1,4 @@
-import { renderGridCategory } from './elements/renderGridCategory.js'
+import { renderGridCategory } from "./elements/renderGridCategory.js";
 import { BASE_URL, allProducts } from "./utils/settings.js";
 import renderHeroBanner from "./elements/renderHerobanner.js";
 import renderFeatured from "./elements/renderFeatured.js";
@@ -9,9 +9,7 @@ import { spinner } from "./elements/spinner.js";
 import { fectData } from "./helpers/fetcData.js";
 import { showMessage } from "./helpers/showMessage.js";
 import { removeMessage } from "./helpers/removeMessage.js";
-import { lasyLoadImages } from './helpers/lasyLoadImages.js'
-
-
+import { lasyLoadImages } from "./helpers/lasyLoadImages.js";
 
 renderNavbar();
 
@@ -22,7 +20,7 @@ renderNavbar();
   const homeUrl = `${BASE_URL}/home`;
   const productsUrl = `${BASE_URL}/products`;
 
-  spinner('.featured-container');
+  spinner(".featured-container");
 
   const [homeResponse, productResponse] = await Promise.all([
     fectData(homeUrl),
@@ -38,8 +36,11 @@ renderNavbar();
   if (!productResponse || typeof productResponse === "string") {
     showMessage("danger", result, ".featured-container .message-container");
     return saveToSessionStorage(allProducts);
-
   }
+
+  const heroLoader = document.querySelector(".hero-loader ");
+  console.log(heroLoader);
+  heroLoader.style.display = "none";
 
   renderGridCategory(productResponse);
   renderFeatured(productResponse);

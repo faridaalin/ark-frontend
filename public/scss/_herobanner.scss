@@ -39,7 +39,7 @@
   color: getColour(white-200);
   margin-left: -62px;
   opacity: 0;
-  animation: fadeIn 1s ease  0.5s forwards;
+  animation: fadeIn 1s ease 0.5s forwards;
 
   .edit-bg {
     top: 0;
@@ -57,12 +57,12 @@
     font-size: calc(2rem + 2vw);
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.48);
     padding-bottom: 2rem;
-    line-height: 0.9;
+    line-height: 1.25;
     margin-left: -0.19rem;
   }
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
   0% {
     margin-left: -62px;
     opacity: 0;

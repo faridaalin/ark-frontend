@@ -26,6 +26,12 @@ li {
   flex: 1;
 }
 
+.link-collection {
+  :hover {
+    text-decoration: none;
+  }
+}
+
 .wrapper {
   .container-fluid-navbar {
     width: 100%;
@@ -112,7 +118,7 @@ li {
 
     &:hover {
       color: getColour(black-300);
-      opacity: .89;
+      opacity: 0.89;
     }
 
     @media all and (min-width: 768px) {

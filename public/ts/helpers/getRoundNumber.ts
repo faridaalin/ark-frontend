@@ -1,3 +1,3 @@
-export const getRoundNumber = (price) => {
-    return Math.round(price)
-  };
+export const getRoundNumber = (price: number) => {
+  return Math.round(price);
+};

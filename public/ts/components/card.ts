@@ -1,6 +1,7 @@
 import { getLoggedInUser } from "../helpers/getLoggedInUser";
 import { getRoundNumber } from "../helpers/getRoundNumber";
 import { getFavsIcon } from "../helpers/getFavsIcon";
+import { BASE_URL } from "../utils/settings";
 
 export const card = (product: any) => {
   const price = getRoundNumber(product.price);
@@ -15,7 +16,7 @@ export const card = (product: any) => {
   const image = product.image_url
     ? product.image_url
     : product.image.url
-    ? `http://localhost:1337${product.image.url}`
+    ? `${BASE_URL}${product.image.url}`
     : `https://res.cloudinary.com/djey7uz4e/image/upload/v1606132924/noImage_plcdvu.jpg`;
 
   return ` <div class="product-top">

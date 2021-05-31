@@ -10,7 +10,7 @@ import { getLoggedInUser } from "../helpers/getLoggedInUser";
 export const renderNavbar = () => {
   showNavbarBgOnScroll();
 
-  const innerNav = document.querySelector(".custom-nav");
+  const innerNav = document.querySelector(".custom-nav") as HTMLDivElement;
   const user = getLoggedInUser();
   const { pathname } = location;
 

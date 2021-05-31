@@ -7,7 +7,7 @@ export const validateFields = (element: string) => {
   const inputs = document.querySelectorAll(element) as NodeListOf<Element>;
   const inputsArr = [...inputs];
 
-  let isValid = true;
+  let isValid: boolean = true;
 
   for (let i = 0; i < inputsArr.length; i++) {
     if ((inputsArr[i] as HTMLInputElement).value.length === 0) {
@@ -39,7 +39,6 @@ export const validateFields = (element: string) => {
   if (isValid === false) {
     const msg = "Check for missing values or incorrect values";
     showMessage("danger", msg, "#msg");
-
     return;
   }
   return isValid;

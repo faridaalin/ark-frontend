@@ -3,13 +3,17 @@ import { saveCartItemsToLocal, getFromLocal } from "../utils/storage";
 import { addQty } from "../helpers/addQty";
 import { addSize } from "../helpers/addSize";
 
-export const addToCart = (product) => {
-  const addToCartBtn = document.querySelector("#addToCart");
+export const addToCart = (product: any) => {
+  const addToCartBtn = document.querySelector(
+    "#addToCart"
+  ) as HTMLButtonElement;
   let localCart = getFromLocal(cart);
   addQty();
 
-  const showSuccessMessage = (itemToShow) => {
-    const productAdded = document.querySelector(".product-added");
+  const showSuccessMessage = (itemToShow: any) => {
+    const productAdded = document.querySelector(
+      ".product-added"
+    ) as HTMLDivElement;
     productAdded.textContent = "";
 
     addToCartBtn.setAttribute("data-toggle", "modal");
@@ -20,17 +24,19 @@ export const addToCart = (product) => {
 
   if (!localCart) localCart = [];
 
-  addToCartBtn.addEventListener("click", function (e) {
+  addToCartBtn.addEventListener("click", function () {
     addQty();
 
-    const qty = document.querySelector(".value").textContent;
-    const selectedQty = parseInt(qty);
+    const qty = (document.querySelector(".value") as HTMLDivElement)
+      .textContent;
+
+    const selectedQty = qty && parseInt(qty);
     const selectedSize = addSize();
 
     if (!selectedSize) return;
 
     const alreadyInCart = localCart.find(
-      (item) => item.product.id === product.id
+      (item: any) => item.product.id === product.id
     );
 
     if (!alreadyInCart) {
@@ -50,7 +56,7 @@ export const addToCart = (product) => {
       showSuccessMessage(product);
       saveCartItemsToLocal(cart, localCart);
     } else {
-      const item = localCart.find((item) => {
+      const item = localCart.find((item: any) => {
         return item.qtySize[0].size === selectedSize;
       });
 

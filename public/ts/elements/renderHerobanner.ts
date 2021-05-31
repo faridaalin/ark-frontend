@@ -6,20 +6,19 @@ import { getLoggedInUser } from "../helpers/getLoggedInUser";
 
 const user = getLoggedInUser();
 
-export const editBackgroundImg = (e) => {
+export const editBackgroundImg = (e: Event) => {
   const token = getFromLocal(userToken);
   const URL = `${BASE_URL}/home`;
-  const formButton = document.querySelector("#edit-bg");
-  const altText = document.querySelector(".altText");
-  const imgUrl = document.querySelector(".img-url");
+  const formButton = document.querySelector("#edit-bg") as HTMLButtonElement;
+  const altText = document.querySelector(".altText") as HTMLInputElement;
+  const imgUrl = document.querySelector(".img-url") as HTMLInputElement;
 
-  const handleBgChange = (e) => {
+  const handleBgChange = (e: Event) => {
     e.preventDefault();
 
     const isValid = validateFields("#editBg-form .form-control");
-    if (isValid === false || isValid === undefined) {
-      return;
-    }
+    console.log("isValid --- ", isValid !== true);
+    if (isValid !== true) return;
 
     const productObj = {
       hero_banner_alt_text: altText.value,
@@ -33,9 +32,11 @@ export const editBackgroundImg = (e) => {
   formButton.addEventListener("click", handleBgChange);
 };
 
-const renderHeroBanner = (url) => {
-  const herobanner = document.querySelector(".herobanner");
-  const herobannerContent = document.querySelector(".herobanner__content");
+const renderHeroBanner = (url: string) => {
+  const herobanner = document.querySelector(".herobanner") as HTMLDivElement;
+  const herobannerContent = document.querySelector(
+    ".herobanner__content"
+  ) as HTMLDivElement;
   herobanner.style.backgroundImage = `url(${url})`;
 
   const edit =

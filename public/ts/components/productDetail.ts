@@ -1,11 +1,13 @@
 import { createRatingArray } from "../helpers/createRatingArray";
 import { getRoundNumber } from "../helpers/getRoundNumber";
 
-export const productDetail = (product) => {
-  const container = document.querySelector(".pdp-detail-container");
+export const productDetail = (product: IProduct) => {
+  const container = document.querySelector(
+    ".pdp-detail-container"
+  ) as HTMLDivElement;
 
   const rating = createRatingArray(product);
-  const price = getRoundNumber(product.price);
+  const price = getRoundNumber(+product.price);
 
   container.innerHTML = `
   <div class="img-container col-12 col-md-6 d-flex flex-column ">

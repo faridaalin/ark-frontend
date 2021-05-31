@@ -2,8 +2,12 @@ import { displayProductCard } from "../helpers/displayProductCard";
 import { saveFavourites } from "../helpers/saveFavourites";
 import { lasyLoadImages } from "../helpers/lasyLoadImages";
 
-const renderAllProducts = (products, msg, container) => {
-  const element = document.querySelector(container);
+const renderAllProducts = (
+  products: IProduct[],
+  msg: string,
+  container: string
+) => {
+  const element = document.querySelector(container) as HTMLDivElement;
   element.innerHTML = "";
 
   if (products.length === 0) {

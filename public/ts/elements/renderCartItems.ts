@@ -4,12 +4,13 @@ import { getTotalPrice, getTotalPricePerItem } from "../helpers/getTotalPrice";
 import { deleteItem } from "../helpers/deleteItem";
 import { getRoundNumber } from "../helpers/getRoundNumber";
 
-const removeItemFromCart = (cartItems) => {
+const removeItemFromCart = (cartItems: any) => {
   const deleteItems = document.querySelectorAll(".delete-icon");
 
   deleteItems.forEach((itemToDelete) => {
-    const handleItemToDelete = (e) => {
-      const id = parseInt(e.target.dataset.id);
+    const handleItemToDelete = (e: Event) => {
+      const id = +(e.target as HTMLElement).attributes[1].value;
+      // const id = parseInt((e.target as HTMLElement).dataset.id);
       const updatedCartITems = deleteItem(cartItems, id);
       saveCartItemsToLocal(cart, updatedCartITems);
       renderCartItems();
@@ -21,9 +22,15 @@ const removeItemFromCart = (cartItems) => {
 export const renderCartItems = () => {
   const cartItems = getFromLocal(cart);
 
-  const cartItemsContainer = document.querySelector(".cart-items-container");
-  const cartTotalContainer = document.querySelector(".cart-total-container");
-  const checkoutContainer = document.querySelector(".cart-container");
+  const cartItemsContainer = document.querySelector(
+    ".cart-items-container"
+  ) as HTMLDivElement;
+  const cartTotalContainer = document.querySelector(
+    ".cart-total-container"
+  ) as HTMLDivElement;
+  const checkoutContainer = document.querySelector(
+    ".cart-container"
+  ) as HTMLDivElement;
 
   cartItemsContainer.innerHTML = "";
   cartTotalContainer.innerHTML = "";
@@ -34,8 +41,8 @@ export const renderCartItems = () => {
   </div>`);
   }
 
-  cartItems.map((item) => {
-    const price = getRoundNumber(item.product.price);
+  cartItems.map((item: any) => {
+    const price = getRoundNumber(+item.product.price);
 
     cartItemsContainer.innerHTML += `
     <div>
@@ -65,7 +72,7 @@ export const renderCartItems = () => {
                   <div class="qtySize-container d-flex flex-wrap flex-column w-100">
 
                     ${item.qtySize
-                      .map((itemSizes) => {
+                      .map((itemSizes: any) => {
                         return `
                     <div class="qtySize-container d-flex">
                       <p class="light-text flex-grow-1 align-text-bottom pr-2">Size ${itemSizes.size}</p>

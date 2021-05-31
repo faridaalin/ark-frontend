@@ -2,38 +2,30 @@ import { loadCurrentItems } from "../helpers/loadCurrentItems";
 import renderAllProducts from "../elements/renderAllProducts";
 import { spinner } from "../elements/spinner";
 
-export const saveToLocal = (key, value) => {
+export const saveToLocal = (key: string, value: [Product]) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export const saveCartItemsToLocal = (key, value) => {
+export const saveCartItemsToLocal = (key: string, value) => {
   localStorage.setItem(key, JSON.stringify(value));
   loadCurrentItems(key, ".cart-icon span");
 };
 
-export const saveToSessionStorage = (key, value) => {
+export const saveToSessionStorage = (key: string, value: [Product]) => {
   sessionStorage.setItem(key, JSON.stringify(value));
 };
 
-export const getFromSessionStorage = (key) => {
+export const getFromSessionStorage = (key: string) => {
   const value = sessionStorage.getItem(key);
-  if (value === null) {
-    return null;
-  } else {
-    return JSON.parse(value);
-  }
+  return value === null ? null : JSON.parse(value);
 };
 
-export const getFromLocal = (key) => {
+export const getFromLocal = (key: string) => {
   const value = localStorage.getItem(key);
-  if (value === null) {
-    return null;
-  } else {
-    return JSON.parse(value);
-  }
+  return value === null ? null : JSON.parse(value);
 };
 
-export const saveToFavsListStorage = (tag, list) => {
+export const saveToFavsListStorage = (tag: string, list: [Product]) => {
   saveToLocal(tag, list);
   loadCurrentItems(tag, ".favs-icon span");
 

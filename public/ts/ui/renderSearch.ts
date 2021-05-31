@@ -2,7 +2,8 @@ import { allProducts } from "../utils/settings";
 import { getFromSessionStorage } from "../utils/storage";
 import renderAllProducts from "../elements/renderAllProducts";
 
-const getSearchTerm = (products, searchTerm) => {
+const getSearchTerm = (products: Product[], searchTerm: string) => {
+  if (!products) return;
   const filteredSearch = products.filter((product) => {
     return (
       product.title.toLowerCase().includes(searchTerm) ||
@@ -24,16 +25,21 @@ const getSearchTerm = (products, searchTerm) => {
 
 export const renderSearch = () => {
   const products = getFromSessionStorage(allProducts);
-  const searchInput = document.querySelector("#search");
-  const searchIcon = document.querySelector(".search-icon");
-  let timeout = null;
 
-  searchInput.addEventListener("input", (e) => {
-    const searchTerm = e.target.value.trim().toLowerCase();
+  const searchInput = document.querySelector("#search") as HTMLInputElement;
+  const searchIcon = document.querySelector(
+    ".search-icon"
+  ) as HTMLOrSVGImageElement;
+  let timeout: number;
+
+  searchInput.addEventListener("input", (e: Event) => {
+    const searchTerm = (e.target as HTMLInputElement).value
+      .trim()
+      .toLowerCase();
 
     clearTimeout(timeout);
 
-    timeout = setTimeout(() => {
+    timeout = window.setTimeout(() => {
       getSearchTerm(products, searchTerm);
     }, 1000);
 

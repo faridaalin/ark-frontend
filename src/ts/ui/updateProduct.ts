@@ -25,6 +25,5 @@ export const updateProduct = async (obj: any, url: string, token: string) => {
       const msg = product.error;
       return showMessage("danger", msg, ".edit-form .message-container");
     }
-    console.log("product", product);
   });
 };

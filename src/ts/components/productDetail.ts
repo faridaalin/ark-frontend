@@ -7,7 +7,7 @@ export const productDetail = (product: IProduct) => {
   ) as HTMLDivElement;
 
   const rating = createRatingArray(product);
-  console.log("rating", rating);
+
   const price = getRoundNumber(+product.price);
 
   container.innerHTML = `

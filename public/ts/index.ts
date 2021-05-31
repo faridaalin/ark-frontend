@@ -34,12 +34,16 @@ renderNavbar();
 
   renderHeroBanner(homeResponse.hero_url);
   if (!productResponse || typeof productResponse === "string") {
-    showMessage("danger", result, ".featured-container .message-container");
-    return saveToSessionStorage(allProducts);
+    showMessage(
+      "danger",
+      "Sorry, an error happened. Please, try again later.",
+      ".featured-container .message-container"
+    );
+    return saveToSessionStorage(allProducts, productResponse);
   }
 
-  const heroLoader = document.querySelector(".hero-loader ");
- 
+  const heroLoader = document.querySelector(".hero-loader ") as HTMLDivElement;
+
   heroLoader.style.display = "none";
 
   renderGridCategory(productResponse);

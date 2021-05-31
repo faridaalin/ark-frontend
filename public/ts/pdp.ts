@@ -25,7 +25,6 @@ renderNavbar();
       return;
     }
 
-    console.log("PDP result:", result);
     document.title = result.title;
     const breadcrumb = document.querySelector(".breadcrumb") as HTMLLIElement;
     breadcrumb.innerHTML += `<li class="breadcrumb-item active" aria-current="page">${result.title}</li>`;

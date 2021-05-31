@@ -27,7 +27,7 @@ export const productDetail = (product: IProduct) => {
       <div class="rating-container">
         <small class="pb-2">${product.brand}</small>
         <div class="rating">
-          ${rating.map((star) => star).join("")}
+          ${rating!.map((star) => star).join("")}
         </div>
       </div>
       <h3 class="pb-md-2">${product.title}</h3>

@@ -6,7 +6,7 @@ import { getLoggedInUser } from "../helpers/getLoggedInUser";
 
 const user = getLoggedInUser();
 
-export const editBackgroundImg = (e: Event) => {
+export const editBackgroundImg = () => {
   const token = getFromLocal(userToken);
   const URL = `${BASE_URL}/home`;
   const formButton = document.querySelector("#edit-bg") as HTMLButtonElement;
@@ -17,7 +17,7 @@ export const editBackgroundImg = (e: Event) => {
     e.preventDefault();
 
     const isValid = validateFields("#editBg-form .form-control");
-    console.log("isValid --- ", isValid !== true);
+
     if (isValid !== true) return;
 
     const productObj = {

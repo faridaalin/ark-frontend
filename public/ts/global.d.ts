@@ -14,3 +14,15 @@ interface IProduct {
   title: string;
   updated_at: string;
 }
+
+interface IHeroBanner {
+  alt_text: string;
+  hero_banner: {
+    alternativeText: string;
+    name: string;
+    url: string;
+  };
+  hero_banner_alt_text: string;
+  hero_url: url;
+  updated_at: string;
+}

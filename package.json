@@ -11,8 +11,8 @@
     "watch:sass": "sass scss/style.scss css/styles.css --watch",
     "liveserver": "live-server",
     "develop": "concurrently \"npm run watch:sass\" \"npm run liveserver\" ",
-    "dev": "parcel public/index.html",
-    "build": "parcel build public/index.html",
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/index.html",
     "serve": "serve -s dist/"
   },
   "repository": {

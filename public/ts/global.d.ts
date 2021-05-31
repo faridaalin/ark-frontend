@@ -1,11 +1,11 @@
-interface Product {
+interface IProduct {
   alt_text: string;
   brand: string;
   category: string;
   created_at: string;
   description: string;
   featured: boolean;
-  is: number;
+  id: number;
   image: string | null;
   image_url: string;
   price: number;

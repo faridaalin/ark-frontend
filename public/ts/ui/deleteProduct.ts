@@ -1,13 +1,15 @@
 import { showMessage } from "../helpers/showMessage";
 import { fectData } from "../helpers/fetcData";
 
-export const deleteProduct = (url, token) => {
-  const container = document.querySelector(".buttons");
+export const deleteProduct = (url: string, token: string) => {
+  const container = document.querySelector(".buttons") as HTMLDivElement;
   container.innerHTML += `<button type="button" name="action" value="delete" class="btn btn-outline-danger btn-block product-delete" data-toggle="modal" data-target="#deleteProduct">
     Delete
   </button>`;
 
-  const deleteButton = document.querySelector(".btn-delete");
+  const deleteButton = document.querySelector(
+    ".btn-delete"
+  ) as HTMLButtonElement;
 
   const handleDeleteProduct = async () => {
     const options = {

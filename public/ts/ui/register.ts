@@ -9,23 +9,33 @@ import {
   validateUserAndPasswordInput,
 } from "../helpers/registerValidation";
 
-export const register = (e) => {
-  const registerBtn = document.querySelector(".registerBtn");
+export const register = () => {
+  const registerBtn = document.querySelector(
+    ".registerBtn"
+  ) as HTMLButtonElement;
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: Event) => {
     e.preventDefault();
 
-    const registerForm = document.querySelector(".register-form");
-    const formSpinner = registerForm.querySelector(".form-group-spinner");
+    const registerForm = document.querySelector(
+      ".register-form"
+    ) as HTMLFormElement;
+    const formSpinner = registerForm.querySelector(
+      ".form-group-spinner"
+    ) as HTMLDivElement;
     const formGroupGontainer = registerForm.querySelector(
       ".form-group-container"
-    );
-    const username = document.querySelector("#registerUsername");
-    const password = document.querySelector("#registerPassword");
-    const email = document.querySelector("#registerEmail");
-    const usernameValue = username.value.trim();
-    const passwordValue = password.value.trim();
-    const emailValue = email.value.trim();
+    ) as HTMLDivElement;
+    const username = document.querySelector(
+      "#registerUsername"
+    ) as HTMLInputElement;
+    const password = document.querySelector(
+      "#registerPassword"
+    ) as HTMLInputElement;
+    const email = document.querySelector("#registerEmail") as HTMLInputElement;
+    const usernameValue = (username as HTMLInputElement).value.trim();
+    const passwordValue = (password as HTMLInputElement).value.trim();
+    const emailValue = (email as HTMLInputElement).value.trim();
 
     validateUserAndPasswordInput(usernameValue, username, 2);
     validateEmailIput(emailValue, email);
@@ -38,14 +48,19 @@ export const register = (e) => {
     )
       return;
 
-    const registerNewUser = (userInfo) => {
+    interface IUser {
+      usernameValue: string;
+      emailValue: string;
+      passwordValue: string;
+    }
+    const registerNewUser = (user: IUser) => {
       removeMessage(".register-form .message-container");
       const URL = `${BASE_URL}/auth/local/register`;
 
       const data = {
-        username: usernameValue,
-        email: emailValue,
-        password: passwordValue,
+        username: user.usernameValue,
+        email: user.emailValue,
+        password: user.passwordValue,
       };
       const options = {
         method: "POST",
@@ -66,9 +81,15 @@ export const register = (e) => {
           formGroupGontainer.classList.remove("hide-form");
           username.classList.add("is-invalid");
           email.classList.add("is-invalid");
-          registerForm.querySelector(".feedback-username").innerHTML = "";
-          registerForm.querySelector(".feedback-email").innerHTML = "";
-          registerForm.querySelector(".feedback-password").innerHTML = "";
+          (
+            registerForm.querySelector(".feedback-username") as HTMLDivElement
+          ).innerHTML = "";
+          (
+            registerForm.querySelector(".feedback-email") as HTMLDivElement
+          ).innerHTML = "";
+          (
+            registerForm.querySelector(".feedback-password") as HTMLDivElement
+          ).innerHTML = "";
           return;
         }
         formSpinner.classList.remove("hide-spinner");
@@ -82,13 +103,13 @@ export const register = (e) => {
       });
     };
 
-    const newUserRegisterInfo = {
+    const newUser = {
       usernameValue,
       emailValue,
       passwordValue,
     };
 
-    registerNewUser(newUserRegisterInfo);
+    registerNewUser(newUser);
   };
 
   registerBtn.addEventListener("click", handleLogin);

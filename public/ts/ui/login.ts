@@ -4,16 +4,15 @@ import { showMessage } from "../helpers/showMessage";
 import { removeMessage } from "../helpers/removeMessage";
 import { renderNavbar } from "../elements/renderNavbar";
 import { fectData } from "../helpers/fetcData";
-import { spinner } from "../elements/spinner";
 
-export const login = (e) => {
-  const loginBtn = document.querySelector(".loginBtn");
+export const login = () => {
+  const loginBtn = document.querySelector(".loginBtn") as HTMLButtonElement;
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: Event) => {
     e.preventDefault();
 
-    const username = document.querySelector("#username");
-    const password = document.querySelector("#password");
+    const username = document.querySelector("#username") as HTMLInputElement;
+    const password = document.querySelector("#password") as HTMLInputElement;
     const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
 
@@ -31,7 +30,10 @@ export const login = (e) => {
     }
 
     if (usernameValue.length > 2 && passwordValue.length > 7) {
-      const authUser = (username, password) => {
+      const authUser = (
+        username: HTMLInputElement,
+        password: HTMLInputElement
+      ) => {
         removeMessage(".message-container");
         const URL = `${BASE_URL}/auth/local`;
 
@@ -50,10 +52,12 @@ export const login = (e) => {
           body: JSON.stringify(data),
         };
 
-        const formSpinner = document.querySelector(".form-group-spinner");
+        const formSpinner = document.querySelector(
+          ".form-group-spinner"
+        ) as HTMLDivElement;
         const formGroupGontainer = document.querySelector(
           ".form-group-container"
-        );
+        ) as HTMLDivElement;
         formSpinner.classList.add("hide-spinner");
         formGroupGontainer.classList.add("hide-form");
 
@@ -65,13 +69,17 @@ export const login = (e) => {
             formGroupGontainer.classList.remove("hide-form");
             username.classList.add("is-invalid");
             password.classList.add("is-invalid");
-            document.querySelector(".feedback-password").innerHTML = "";
-            document.querySelector(".feedback-username").innerHTML = "";
+            (
+              document.querySelector(".feedback-password") as HTMLDivElement
+            ).innerHTML = "";
+            (
+              document.querySelector(".feedback-username") as HTMLDivElement
+            ).innerHTML = "";
             return;
           }
           saveToLocal(user, userData.user);
           saveToLocal(userToken, userData.jwt);
-          const modal = document.querySelector(".modal");
+          const modal = document.querySelector(".modal") as HTMLDivElement;
           modal.classList.remove("show");
           modal.classList.add("hide");
 

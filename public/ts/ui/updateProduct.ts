@@ -2,7 +2,7 @@ import { showMessage } from "../helpers/showMessage";
 import { fectData } from "../helpers/fetcData";
 
 export const updateProduct = async (
-  obj: Product,
+  obj: IProduct,
   url: string,
   token: string
 ) => {

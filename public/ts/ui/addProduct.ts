@@ -2,7 +2,7 @@ import { showMessage } from "../helpers/showMessage";
 import { removeMessage } from "../helpers/removeMessage";
 import { fectData } from "../helpers/fetcData";
 
-export const addNewProduct = (url: string, token: string, obj: Product) => {
+export const addNewProduct = (url: string, token: string, obj: any) => {
   removeMessage("#msg");
 
   const options = {

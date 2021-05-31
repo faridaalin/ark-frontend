@@ -12,7 +12,7 @@ import { getLoggedInUser } from "./helpers/getLoggedInUser";
 
 renderNavbar();
 
-const form = document.querySelector("#addForm");
+const form = document.querySelector("#addForm") as HTMLFormElement;
 const user = getLoggedInUser();
 
 if (!user) location.href = "/";
@@ -21,21 +21,23 @@ if (user && user.username === "admin") {
   const URL = `${BASE_URL}/products`;
   const token = getFromLocal(userToken);
 
-  const title = document.querySelector("#name");
-  const brand = document.querySelector("#brand");
-  const price = document.querySelector("#price");
-  const description = document.querySelector("#description");
-  const imgUrl = document.querySelector("#url");
-  const altText = document.querySelector(".altText");
-  const category = document.querySelector(".category");
-  const featured = document.querySelector("#featured");
+  const title = document.querySelector("#name") as HTMLInputElement;
+  const brand = document.querySelector("#brand") as HTMLInputElement;
+  const price = document.querySelector("#price") as HTMLInputElement;
+  const description = document.querySelector(
+    "#description"
+  ) as HTMLInputElement;
+  const imgUrl = document.querySelector("#url") as HTMLInputElement;
+  const altText = document.querySelector(".altText") as HTMLInputElement;
+  const category = document.querySelector(".category") as HTMLInputElement;
+  const featured = document.querySelector("#featured") as HTMLInputElement;
 
-  const handleNewproduct = (e) => {
+  const handleNewproduct = (e: Event) => {
     e.preventDefault();
     removeMessage("#msg");
 
     const isValid = validateFields(".add-form .form-control");
-    if (isValid === false || isValid === undefined) return;
+    if (isValid !== true) return;
 
     const productObject = {
       title: title.value,

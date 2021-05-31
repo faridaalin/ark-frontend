@@ -18,15 +18,17 @@ if (!user) location.href = "/";
 
 if (user && user.username === "admin") {
   const id = getUrlParam("id");
-  const title = document.querySelector("#name");
-  const brand = document.querySelector("#brand");
-  const price = document.querySelector("#price");
-  const description = document.querySelector("#description");
-  const imgUrl = document.querySelector("#url");
-  const altText = document.querySelector(".altText");
-  const category = document.querySelector(".category");
-  const productID = document.querySelector("#id");
-  const featured = document.querySelector("#featured");
+  const title = document.querySelector("#name") as HTMLInputElement;
+  const brand = document.querySelector("#brand") as HTMLInputElement;
+  const price = document.querySelector("#price") as HTMLInputElement;
+  const description = document.querySelector(
+    "#description"
+  ) as HTMLInputElement;
+  const imgUrl = document.querySelector("#url") as HTMLInputElement;
+  const altText = document.querySelector(".altText") as HTMLInputElement;
+  const category = document.querySelector(".category") as HTMLInputElement;
+  const productID = document.querySelector("#id") as HTMLInputElement;
+  const featured = document.querySelector("#featured") as HTMLInputElement;
 
   const URL = `${BASE_URL}/products/${id}`;
   const token = getFromLocal(userToken);
@@ -47,14 +49,14 @@ if (user && user.username === "admin") {
     featured.checked = product.featured;
   });
 
-  const form = document.querySelector(".edit-form");
+  const form = document.querySelector(".edit-form") as HTMLFormElement;
 
-  const handleFormEdit = (e) => {
+  const handleFormEdit = (e: Event) => {
     e.preventDefault();
     removeMessage(".edit-form .message-container");
 
     const isValid = validateFields(".edit-form .form-control");
-    if (isValid === false || isValid === undefined) return;
+    if (isValid !== true) return;
 
     const productObj = {
       title: title.value,

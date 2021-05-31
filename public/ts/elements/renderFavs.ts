@@ -9,7 +9,7 @@ renderNavbar();
 export const renderFavs = () => {
   const savedFavs = getFromLocal(favs) ? getFromLocal(favs) : [];
   const msg =
-    savedFavs.length === 0 && "You have no items in your favourites list.";
+    savedFavs.length === 0 ? "You have no items in your favourites list." : "";
 
   spinner(".fav-container");
 

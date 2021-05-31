@@ -2,7 +2,7 @@ import { allProducts } from "../utils/settings";
 import { getFromSessionStorage } from "../utils/storage";
 import renderAllProducts from "../elements/renderAllProducts";
 
-const getSearchTerm = (products: Product[], searchTerm: string) => {
+const getSearchTerm = (products: IProduct[], searchTerm: string) => {
   if (!products) return;
   const filteredSearch = products.filter((product) => {
     return (

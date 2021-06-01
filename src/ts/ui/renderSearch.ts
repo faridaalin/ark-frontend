@@ -1,9 +1,11 @@
 import { allProducts } from "../utils/settings";
 import { getFromSessionStorage } from "../utils/storage";
 import renderAllProducts from "../elements/renderAllProducts";
+import debounce from "lodash-es/debounce";
 
 const getSearchTerm = (products: IProduct[], searchTerm: string) => {
   if (!products) return;
+
   const filteredSearch = products.filter((product) => {
     return (
       product.title.toLowerCase().includes(searchTerm) ||
@@ -30,23 +32,18 @@ export const renderSearch = () => {
   const searchIcon = document.querySelector(
     ".search-icon"
   ) as HTMLOrSVGImageElement;
-  let timeout: number;
 
   searchInput.addEventListener("input", (e: Event) => {
     const searchTerm = (e.target as HTMLInputElement).value
       .trim()
       .toLowerCase();
 
-    clearTimeout(timeout);
-
-    timeout = window.setTimeout(() => {
-      getSearchTerm(products, searchTerm);
-    }, 1000);
+    const debouncedSearch = debounce(getSearchTerm, 1000);
+    debouncedSearch(products, searchTerm);
 
     const handleSearch = () => {
-      setTimeout(() => {
-        getSearchTerm(products, searchTerm);
-      }, 1000);
+      const debouncedSearch = debounce(getSearchTerm, 1000);
+      debouncedSearch(products, searchTerm);
     };
     searchIcon.addEventListener("click", handleSearch);
   });

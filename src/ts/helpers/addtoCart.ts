@@ -33,7 +33,9 @@ export const addToCart = (product: IProduct) => {
     const selectedQty = qty && parseInt(qty);
     const selectedSize = addSize();
 
-    if (!selectedSize) return;
+    if (!selectedSize) {
+      return;
+    }
 
     const alreadyInCart = localCart.find(
       (item: Icart) => item.product.id === product.id
@@ -53,8 +55,10 @@ export const addToCart = (product: IProduct) => {
           ],
         },
       ];
+
       showSuccessMessage(product);
       saveCartItemsToLocal(cart, localCart);
+      return;
     } else {
       const item = localCart.find((item: Icart) => {
         return item.qtySize[0].size === selectedSize;
@@ -68,12 +72,15 @@ export const addToCart = (product: IProduct) => {
             qty: selectedQty,
           },
         ];
+
         showSuccessMessage(alreadyInCart.product);
         saveCartItemsToLocal(cart, localCart);
+        return;
       } else {
         item.qtySize[0].qty = item.qtySize[0].qty + selectedQty;
         showSuccessMessage(alreadyInCart.product);
         saveCartItemsToLocal(cart, localCart);
+        return;
       }
     }
   });

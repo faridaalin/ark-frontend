@@ -25,8 +25,6 @@ renderNavbar();
       );
     }
 
-    console.log("shop:", result);
-
     saveToSessionStorage(allProducts, result);
     renderAllProducts(result, "Shop is currently empty", ".shop-container");
     renderFilterOptions(result);

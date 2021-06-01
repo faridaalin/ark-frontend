@@ -7,8 +7,13 @@
   "description": "<img src=\"./.readme/noroff-light.png\" width=\"160\" align=\"right\">",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.html",
-    "build": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:sass": "sass scss/style.scss css/styles.css --watch",
+    "liveserver": "live-server",
+    "develop": "concurrently \"npm run watch:sass\" \"npm run liveserver\" ",
+    "cleanup": "rm -rf ./.cache ./dist",
+    "dev": "yarn run cleanup &&  parcel ./src/index.html",
+    "build": "yarn run cleanup && parcel build ./src/index.html",
     "serve": "serve -s dist/"
   },
   "repository": {

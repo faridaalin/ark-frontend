@@ -38,7 +38,12 @@ interface Icart {
   qtySize: [size, qty];
 }
 
-interface IUpdateShoe {
+type IqtySize = {
+  qty?: number;
+  size?: number;
+};
+
+interface IShoe {
   title: string;
   brand: string;
   price: string;
@@ -46,7 +51,7 @@ interface IUpdateShoe {
   image_url: string;
   alt_text: string;
   category: string;
-  id: string;
+  id?: string;
   featured: boolean;
 }
 

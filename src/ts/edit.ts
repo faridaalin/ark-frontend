@@ -70,7 +70,7 @@ if (user && user.username === "admin") {
       featured: featured.checked,
     };
 
-    updateProduct<IUpdateShoe>(productObj, URL, token);
+    updateProduct<IShoe>(productObj, URL, token);
   };
 
   deleteProduct(URL, token);

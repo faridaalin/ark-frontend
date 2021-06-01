@@ -21,7 +21,7 @@ export const saveFavourites = () => {
 
       const products = getFromSessionStorage(allProducts);
       let favsList = getFromLocal(favs);
-      const newFav = products.find((item: any) => id === item.id);
+      const newFav = products.find((item: IProduct) => id === item.id);
 
       if (!favsList) {
         favsList = [];

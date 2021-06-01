@@ -11,9 +11,9 @@ export const loadCurrentItems = (tag: string, container: string) => {
 
   if (tag === "cart") {
     let sum = 0;
-    currentItems.forEach((element: any) => {
-      element.qtySize.forEach((item: any) => {
-        sum += item.qty;
+    currentItems.forEach((element: Icart) => {
+      element.qtySize.forEach((item: IqtySize) => {
+        if (item.qty) sum += item.qty;
       });
     });
     total = sum;

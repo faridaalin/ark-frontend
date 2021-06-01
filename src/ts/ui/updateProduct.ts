@@ -1,7 +1,7 @@
 import { showMessage } from "../helpers/showMessage";
 import { fectData } from "../helpers/fetcData";
 
-export const updateProduct = async (obj: any, url: string, token: string) => {
+export const updateProduct = async <T>(obj: T, url: string, token: string) => {
   const options = {
     method: "PUT",
     headers: {

@@ -26,3 +26,31 @@ interface IHeroBanner {
   hero_url: url;
   updated_at: string;
 }
+type qty = {
+  qty: number;
+};
+type size = {
+  size: number;
+};
+
+interface Icart {
+  product: IProduct;
+  qtySize: [size, qty];
+}
+
+interface IUpdateShoe {
+  title: string;
+  brand: string;
+  price: string;
+  description: string;
+  image_url: string;
+  alt_text: string;
+  category: string;
+  id: string;
+  featured: boolean;
+}
+
+interface IUpdateHeroBanner {
+  hero_banner_alt_text: string;
+  hero_url: string;
+}

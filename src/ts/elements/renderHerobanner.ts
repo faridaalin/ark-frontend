@@ -25,7 +25,7 @@ export const editBackgroundImg = () => {
       hero_url: imgUrl.value,
     };
 
-    updateProduct(productObj, URL, token);
+    updateProduct<IUpdateHeroBanner>(productObj, URL, token);
     location.reload();
   };
 

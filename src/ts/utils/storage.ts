@@ -6,7 +6,7 @@ export const saveToLocal = (key: string, value: IProduct[]) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export const saveCartItemsToLocal = (key: string, value: any) => {
+export const saveCartItemsToLocal = (key: string, value: Icart[]) => {
   localStorage.setItem(key, JSON.stringify(value));
   loadCurrentItems(key, ".cart-icon span");
 };

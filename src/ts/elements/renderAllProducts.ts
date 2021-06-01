@@ -1,6 +1,5 @@
 import { displayProductCard } from "../helpers/displayProductCard";
 import { saveFavourites } from "../helpers/saveFavourites";
-import { lasyLoadImages } from "../helpers/lasyLoadImages";
 
 const renderAllProducts = (
   products: IProduct[],
@@ -24,7 +23,6 @@ const renderAllProducts = (
 
   displayProductCard(products, element);
   saveFavourites();
-  lasyLoadImages();
 };
 
 export default renderAllProducts;

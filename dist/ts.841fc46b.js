@@ -295,7 +295,7 @@ const card = product => {
   return ` <div class="product-top">
   ${edit}
   <a href="/pdp.html?id=${product.id}">
-  <img class="card-img-top img-fluid" data-src="${image}" alt="${product.alt_text}" loading="lazy">
+  <img class="card-img-top img-fluid" src="${image}" alt="${product.alt_text}" loading="lazy">
     <div class="overlay btn-container d-flex justify-content-center align-items-center">
       <button type="button" class="content-btn btn btn-outline-primary">View</button>
     </div>
@@ -398,28 +398,7 @@ const saveFavourites = () => {
 };
 
 exports.saveFavourites = saveFavourites;
-},{"./loadCurrentItems":"ts/helpers/loadCurrentItems.ts","../utils/settings":"ts/utils/settings.ts","../utils/storage":"ts/utils/storage.ts"}],"ts/helpers/lasyLoadImages.ts":[function(require,module,exports) {
-var global = arguments[3];
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.lasyLoadImages = void 0;
-const globalWindow = global;
-
-const lasyLoadImages = () => {
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js";
-  globalWindow.lazyLoadOptions = {
-    elements_selector: "[loading=lazy]"
-  };
-  document.body.appendChild(script);
-};
-
-exports.lasyLoadImages = lasyLoadImages;
-},{}],"ts/elements/renderAllProducts.ts":[function(require,module,exports) {
+},{"./loadCurrentItems":"ts/helpers/loadCurrentItems.ts","../utils/settings":"ts/utils/settings.ts","../utils/storage":"ts/utils/storage.ts"}],"ts/elements/renderAllProducts.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -430,8 +409,6 @@ exports.default = void 0;
 var _displayProductCard = require("../helpers/displayProductCard");
 
 var _saveFavourites = require("../helpers/saveFavourites");
-
-var _lasyLoadImages = require("../helpers/lasyLoadImages");
 
 const renderAllProducts = (products, msg, container) => {
   const element = document.querySelector(container);
@@ -452,12 +429,11 @@ const renderAllProducts = (products, msg, container) => {
 
   (0, _displayProductCard.displayProductCard)(products, element);
   (0, _saveFavourites.saveFavourites)();
-  (0, _lasyLoadImages.lasyLoadImages)();
 };
 
 var _default = renderAllProducts;
 exports.default = _default;
-},{"../helpers/displayProductCard":"ts/helpers/displayProductCard.ts","../helpers/saveFavourites":"ts/helpers/saveFavourites.ts","../helpers/lasyLoadImages":"ts/helpers/lasyLoadImages.ts"}],"ts/elements/spinner.ts":[function(require,module,exports) {
+},{"../helpers/displayProductCard":"ts/helpers/displayProductCard.ts","../helpers/saveFavourites":"ts/helpers/saveFavourites.ts"}],"ts/elements/spinner.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2066,8 +2042,6 @@ var _showMessage = require("./helpers/showMessage");
 
 var _removeMessage = require("./helpers/removeMessage");
 
-var _lasyLoadImages = require("./helpers/lasyLoadImages");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -2120,7 +2094,6 @@ var __awaiter = void 0 && (void 0).__awaiter || function (thisArg, _arguments, P
     (0, _renderGridCategory.renderGridCategory)(products);
     (0, _renderFeatured.default)(products);
     (0, _renderHerobanner.default)(hero.hero_url);
-    (0, _lasyLoadImages.lasyLoadImages)();
     (0, _renderHerobanner.editBackgroundImg)();
     return;
   } else {
@@ -2144,13 +2117,12 @@ var __awaiter = void 0 && (void 0).__awaiter || function (thisArg, _arguments, P
     heroLoader.style.display = "none";
     (0, _renderGridCategory.renderGridCategory)(productResponse);
     (0, _renderFeatured.default)(productResponse);
-    (0, _lasyLoadImages.lasyLoadImages)();
     (0, _renderHerobanner.editBackgroundImg)();
     (0, _storage.saveToSessionStorage)(_settings.allProducts, productResponse);
     (0, _storage.saveToSessionStorage)("herobanner", homeResponse);
   }
 }))();
-},{"./elements/renderGridCategory":"ts/elements/renderGridCategory.ts","./utils/settings":"ts/utils/settings.ts","./elements/renderHerobanner":"ts/elements/renderHerobanner.ts","./elements/renderFeatured":"ts/elements/renderFeatured.ts","./elements/renderNavbar":"ts/elements/renderNavbar.ts","./utils/storage":"ts/utils/storage.ts","./elements/spinner":"ts/elements/spinner.ts","./helpers/fetcData":"ts/helpers/fetcData.ts","./helpers/showMessage":"ts/helpers/showMessage.ts","./helpers/removeMessage":"ts/helpers/removeMessage.ts","./helpers/lasyLoadImages":"ts/helpers/lasyLoadImages.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./elements/renderGridCategory":"ts/elements/renderGridCategory.ts","./utils/settings":"ts/utils/settings.ts","./elements/renderHerobanner":"ts/elements/renderHerobanner.ts","./elements/renderFeatured":"ts/elements/renderFeatured.ts","./elements/renderNavbar":"ts/elements/renderNavbar.ts","./utils/storage":"ts/utils/storage.ts","./elements/spinner":"ts/elements/spinner.ts","./helpers/fetcData":"ts/helpers/fetcData.ts","./helpers/showMessage":"ts/helpers/showMessage.ts","./helpers/removeMessage":"ts/helpers/removeMessage.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2178,7 +2150,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63707" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54537" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

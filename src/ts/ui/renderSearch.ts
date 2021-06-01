@@ -25,7 +25,7 @@ const getSearchTerm = (products: IProduct[], searchTerm: string) => {
   }
 };
 
-export const renderSearch = () => {
+export const renderSearch = (): void => {
   const products = getFromSessionStorage(allProducts);
 
   const searchInput = document.querySelector("#search") as HTMLInputElement;

@@ -22,7 +22,7 @@ export const card = (product: IProduct) => {
   return ` <div class="product-top">
   ${edit}
   <a href="/pdp.html?id=${product.id}">
-  <img class="card-img-top img-fluid" data-src="${image}" alt="${product.alt_text}" loading="lazy">
+  <img class="card-img-top img-fluid" src="${image}" alt="${product.alt_text}" loading="lazy">
     <div class="overlay btn-container d-flex justify-content-center align-items-center">
       <button type="button" class="content-btn btn btn-outline-primary">View</button>
     </div>

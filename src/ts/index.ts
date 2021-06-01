@@ -9,7 +9,6 @@ import { spinner } from "./elements/spinner";
 import { fectData } from "./helpers/fetcData";
 import { showMessage } from "./helpers/showMessage";
 import { removeMessage } from "./helpers/removeMessage";
-import { lasyLoadImages } from "./helpers/lasyLoadImages";
 
 renderNavbar();
 
@@ -26,7 +25,6 @@ renderNavbar();
     renderGridCategory(products);
     renderFeatured(products);
     renderHeroBanner(hero.hero_url);
-    lasyLoadImages();
     editBackgroundImg();
 
     return;
@@ -60,7 +58,6 @@ renderNavbar();
 
     renderGridCategory(productResponse);
     renderFeatured(productResponse);
-    lasyLoadImages();
     editBackgroundImg();
     saveToSessionStorage(allProducts, productResponse);
     saveToSessionStorage("herobanner", homeResponse);

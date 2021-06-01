@@ -339,7 +339,7 @@ const card = product => {
   return ` <div class="product-top">
   ${edit}
   <a href="/pdp.html?id=${product.id}">
-  <img class="card-img-top img-fluid" data-src="${image}" alt="${product.alt_text}" loading="lazy">
+  <img class="card-img-top img-fluid" src="${image}" alt="${product.alt_text}" loading="lazy">
     <div class="overlay btn-container d-flex justify-content-center align-items-center">
       <button type="button" class="content-btn btn btn-outline-primary">View</button>
     </div>
@@ -442,28 +442,7 @@ const saveFavourites = () => {
 };
 
 exports.saveFavourites = saveFavourites;
-},{"./loadCurrentItems":"ts/helpers/loadCurrentItems.ts","../utils/settings":"ts/utils/settings.ts","../utils/storage":"ts/utils/storage.ts"}],"ts/helpers/lasyLoadImages.ts":[function(require,module,exports) {
-var global = arguments[3];
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.lasyLoadImages = void 0;
-const globalWindow = global;
-
-const lasyLoadImages = () => {
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js";
-  globalWindow.lazyLoadOptions = {
-    elements_selector: "[loading=lazy]"
-  };
-  document.body.appendChild(script);
-};
-
-exports.lasyLoadImages = lasyLoadImages;
-},{}],"ts/elements/renderAllProducts.ts":[function(require,module,exports) {
+},{"./loadCurrentItems":"ts/helpers/loadCurrentItems.ts","../utils/settings":"ts/utils/settings.ts","../utils/storage":"ts/utils/storage.ts"}],"ts/elements/renderAllProducts.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -474,8 +453,6 @@ exports.default = void 0;
 var _displayProductCard = require("../helpers/displayProductCard");
 
 var _saveFavourites = require("../helpers/saveFavourites");
-
-var _lasyLoadImages = require("../helpers/lasyLoadImages");
 
 const renderAllProducts = (products, msg, container) => {
   const element = document.querySelector(container);
@@ -496,12 +473,11 @@ const renderAllProducts = (products, msg, container) => {
 
   (0, _displayProductCard.displayProductCard)(products, element);
   (0, _saveFavourites.saveFavourites)();
-  (0, _lasyLoadImages.lasyLoadImages)();
 };
 
 var _default = renderAllProducts;
 exports.default = _default;
-},{"../helpers/displayProductCard":"ts/helpers/displayProductCard.ts","../helpers/saveFavourites":"ts/helpers/saveFavourites.ts","../helpers/lasyLoadImages":"ts/helpers/lasyLoadImages.ts"}],"ts/ui/logout.ts":[function(require,module,exports) {
+},{"../helpers/displayProductCard":"ts/helpers/displayProductCard.ts","../helpers/saveFavourites":"ts/helpers/saveFavourites.ts"}],"ts/ui/logout.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2022,7 +1998,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63707" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54537" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

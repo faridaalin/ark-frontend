@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Search Engine -->
+    <meta
+      name="description"
+      content=" Discover the latest trends in popular shoes at ARK SHOES. Be inspired by the latest trends. Free delivery."
+    />
+    <meta
+      name="image"
+      content="https://res.cloudinary.com/djey7uz4e/image/upload/v1606823787/logo_qig2do.png"
+    />
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="SHOP | Shoes" />
+    <meta
+      itemprop="description"
+      content=" Discover the latest trends in popular shoes at ARK SHOES. Be inspired by the latest trends. Free delivery."
+    />
+    <meta
+      itemprop="image"
+      content="https://res.cloudinary.com/djey7uz4e/image/upload/v1606823787/logo_qig2do.png"
+    />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SHOP | Shoes" />
+    <meta
+      name="twitter:description"
+      content=" Discover the latest trends in popular shoes at ARK SHOES. Be inspired by the latest trends. Free delivery."
+    />
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="SHOP | Shoes" />
+    <meta
+      name="og:description"
+      content=" Discover the latest trends in popular shoes at ARK SHOES. Be inspired by the latest trends. Free delivery."
+    />
+    <meta
+      name="og:image"
+      content="https://res.cloudinary.com/djey7uz4e/image/upload/v1606823787/logo_qig2do.png"
+    />
+    <meta name="og:url" content="www.arkshoes.com" />
+    <meta name="og:site_name" content="ARK SHOES" />
+    <meta name="og:type" content="website" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon_io/favicon-16x16.png"
+    />
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;400;600;700;800;900&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./scss/style.scss" />
+    <title>SHOP | Shoes</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container-fluid container-fluid-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+          <a class="navbar-brand flex-grow-1 logo" href="/"
+            >ARK<span class="logo-highlight">SHOES</span></a
+          >
+          <button
+            class="navbar-toggler custom-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="container-fluid custom-nav custom-nav-home px-2 px-lg-0"
+          ></div>
+        </nav>
+      </div>
+
+      <!-- Modal login/register start -->
+      <div
+        class="modal custom-form-container"
+        id="login"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- <div class="message-container"></div> -->
+            <button
+              type="button"
+              class="close ml-auto pt-4 pr-4"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="accordion" id="accordionExample">
+              <button
+                class="btn btn-link form-title mb-0 collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                <span><i class="fa fa-user"></i>Login</span>
+              </button>
+              <div
+                id="collapseOne"
+                class="collapse in show"
+                data-parent="#accordionExample"
+              >
+                <form
+                  class="login-register-form login-form d-flex flex-column p-4"
+                  autocomplete="off"
+                >
+                  <div class="message-container"></div>
+                  <div class="form-group-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-container">
+                    <div class="form-group d-flex">
+                      <div class="d-flex flex-column w-25">
+                        <label for="username" class="col-form-label"
+                          >Username</label
+                        >
+                        <small>Min 2 letters</small>
+                      </div>
+                      <div class="w-75">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="username"
+                          placeholder="Enter username"
+                          transparent-input
+                        />
+                        <div class="feedback-username invalid-feedback">
+                          Username is too short.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group d-flex">
+                      <div class="d-flex flex-column w-25">
+                        <label for="password" class="col-form-label"
+                          >Password</label
+                        >
+                        <small>Min 8 char</small>
+                      </div>
+                      <div class="w-75">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          placeholder="Enter password"
+                        />
+                        <div class="feedback-password invalid-feedback">
+                          Password is too short.
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="loginBtn btn btn-secondary btn-block shadow-lg"
+                    >
+                      Login
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <button
+                class="btn btn-link form-title mb-0 collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <span>Register</span>
+              </button>
+              <div
+                id="collapseThree"
+                class="collapse"
+                data-parent="#accordionExample"
+              >
+                <form
+                  class="
+                    login-register-form
+                    register-form
+                    d-flex
+                    flex-column
+                    p-4
+                  "
+                  autocomplete="off"
+                >
+                  <div class="message-container"></div>
+
+                  <div class="form-group-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-container">
+                    <div class="form-group d-flex">
+                      <div class="d-flex flex-column w-25">
+                        <label for="registerUsername" class="col-form-label"
+                          >Username</label
+                        >
+                        <small>Min 2 letters</small>
+                      </div>
+                      <div class="w-75">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="registerUsername"
+                          placeholder="Enter username"
+                        />
+                        <div class="feedback-username invalid-feedback">
+                          Username is too short.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group d-flex">
+                      <div class="d-flex flex-column w-25">
+                        <label for="registerEmail" class="col-form-label"
+                          >Email</label
+                        >
+                      </div>
+                      <div class="w-75">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="registerEmail"
+                          placeholder="Enter email"
+                        />
+                        <div class="feedback-email invalid-feedback">
+                          Invalid email
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group d-flex">
+                      <div class="d-flex flex-column w-25">
+                        <label for="password" class="col-form-label"
+                          >Password</label
+                        >
+                        <small>Min 8 char</small>
+                      </div>
+                      <div class="w-75">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="registerPassword"
+                          placeholder="Enter password"
+                        />
+                        <div class="feedback-password invalid-feedback">
+                          Password is too short
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="registerBtn btn btn-secondary btn-block shadow-lg"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal login/register end -->
+
+      <div>
+        <div class="container pt-5 px-4">
+          <nav aria-label="breadcrumb pb-2">
+            <ol class="breadcrumb pl-0">
+              <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shop</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="container-fluid filter-container py-3 mb-4">
+          <div
+            class="
+              container
+              d-flex
+              align-content-center
+              justify-content-between justify-content-lg-start
+            "
+          >
+            <!-- FILTER OPTIONS-->
+            <div class="dropdown category col-5 col-lg-2 d-flex pl-0 mr-lg-5">
+              <button
+                class="btn btn-secondary dropdown-toggle w-100"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Categories
+              </button>
+              <div
+                class="dropdown-menu custom_select"
+                aria-labelledby="dropdownMenuButton"
+              ></div>
+            </div>
+            <div class="filter-price col-7 col-lg-4 ml-lg-5 w-100"></div>
+          </div>
+        </div>
+
+        <div class="container pt-5 px-4">
+          <h1 class="header">Shop</h1>
+          <div class="row">
+            <div class="msg-container" id="pdpMsg"></div>
+          </div>
+          <div class="row shop-container">
+            <!-- Product cards -->
+            <div class="message-container"></div>
+
+            <div class="checkout d-flex pt-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer d-flex justify-content-center flex-column pt-4 mt-4">
+      <div class="container py-4">
+        <div class="row">
+          <div class="custom-center col-sm-6 col-lg-3 mt-lg-0 mb-5 mb-lg-2">
+            <h5 class="text-uppercase">ARKSHOES</h5>
+            <p class="grid-footer">
+              <i class="fa fa-twitter"></i>
+              <i class="fa fa-linkedin-square"></i>
+              <i class="fa fa-facebook"></i> <i class="fa fa-youtube-play"></i>
+            </p>
+            <p class="mb-0">Adresse somewhere</p>
+            <p class="mb-0">34 Street, 1000</p>
+            <p class="mb-0">CA, USA</p>
+          </div>
+
+          <div class="custom-center col-sm-6 col-lg-3 mb-lg-0 mb-5 mb-lg-2">
+            <h5 class="text-uppercase">Support</h5>
+            <ul class="list-unstyled text-center text-sm-left">
+              <li>
+                <a href="#!">FAQ</a>
+              </li>
+              <li>
+                <a href="#!">Terms & Condition</a>
+              </li>
+              <li>
+                <a href="#!">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#!">Other</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="custom-center col-sm-6 col-lg-3 mb-lg-0 mb-5 mb-lg-2">
+            <h5 class="text-uppercase">Explore</h5>
+            <ul class="list-unstyled text-center text-sm-left">
+              <li>
+                <a href="#!">Home</a>
+              </li>
+              <li>
+                <a href="#!">Shop</a>
+              </li>
+              <li>
+                <a href="#!">Men</a>
+              </li>
+              <li>
+                <a href="#!">Women</a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="
+              custom-center
+              newsletter
+              col-sm-6 col-lg-3
+              mb-lg-0 mb-5 mb-lg-2
+            "
+          >
+            <h5 class="text-uppercase">Newsletter</h5>
+            <ul class="list-unstyled">
+              <li>
+                <div class="input-group newsletter">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">
+                      Subscribe
+                    </button>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright container-fluid text-center py-4">
+        <span class="copyright font-weight-light">© 2020 Copyright</span>
+        <span class="font-weight-bold">ARKSHOES</span>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./ts/shop.ts"></script>
+  </body>
+</html>

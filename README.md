@@ -7,12 +7,6 @@
 > Open with live server
 ```
 
-## Strapi API
-
-You will need Node.js v14.
-
-To start the API change directory to `api` install the npm dependecies and then run `npm run develop`
-
 # Semester project 2
 
 To create an e-commerce website that has an Admin and Front-End respectively. The Front-End should be responsive and the website is to be populated by an API supplied by Noroff.

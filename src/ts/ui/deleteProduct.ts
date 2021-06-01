@@ -29,7 +29,7 @@ export const deleteProduct = (url: string, token: string) => {
         showMessage("success", msg, "#msg");
       }
 
-      history.back();
+      location.href = "/shop.html";
     });
   };
 

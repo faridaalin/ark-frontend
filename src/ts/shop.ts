@@ -15,6 +15,7 @@ renderNavbar();
 
   const URL = `${BASE_URL}/products`;
   spinner(".shop-container");
+
   fectData(URL).then((result) => {
     if (!result || typeof result === "string") {
       return showMessage(
@@ -23,6 +24,8 @@ renderNavbar();
         ".shop-container .message-container"
       );
     }
+
+    console.log("shop:", result);
 
     saveToSessionStorage(allProducts, result);
     renderAllProducts(result, "Shop is currently empty", ".shop-container");

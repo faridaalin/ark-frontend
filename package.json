@@ -7,10 +7,6 @@
   "description": "<img src=\"./.readme/noroff-light.png\" width=\"160\" align=\"right\">",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "sass scss/style.scss css/styles.css --watch",
-    "liveserver": "live-server",
-    "develop": "concurrently \"npm run watch:sass\" \"npm run liveserver\" ",
     "dev": "parcel ./src/index.html",
     "build": "parcel build src/index.html",
     "serve": "serve -s dist/"
@@ -30,6 +26,7 @@
     "@popperjs/core": "^2.9.2",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.6.1",
+    "@types/parcel-env": "^0.0.0",
     "@types/react": "^17.0.8",
     "@types/react-dom": "^17.0.5",
     "bootstrap": "^4.6.0",

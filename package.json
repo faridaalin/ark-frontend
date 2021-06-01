@@ -12,8 +12,8 @@
     "liveserver": "live-server",
     "develop": "concurrently \"npm run watch:sass\" \"npm run liveserver\" ",
     "cleanup": "rm -rf ./.cache ./dist",
-    "dev": "yarn run cleanup &&  parcel ./src/index.html",
-    "build": "yarn run cleanup && parcel build ./src/index.html",
+    "dev": "yarn run cleanup &&  parcel ./src/*.html",
+    "build": "yarn run cleanup &&  parcel build ./src/*.html",
     "serve": "serve -s dist/"
   },
   "repository": {

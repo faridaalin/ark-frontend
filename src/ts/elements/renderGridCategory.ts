@@ -4,7 +4,6 @@ import { BASE_URL } from "../utils/settings";
 export const renderGridCategory = (products: IProduct[]) => {
   const masonryGrid = document.querySelector(".masonry") as HTMLDivElement;
   const modifiedCategores = getCategoriesObject(products);
-  console.log("modifiedCategores", modifiedCategores);
 
   for (const property in modifiedCategores) {
     const name = modifiedCategores[property].item.category;

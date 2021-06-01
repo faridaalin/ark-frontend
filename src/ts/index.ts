@@ -16,45 +16,53 @@ renderNavbar();
 (async () => {
   removeMessage(".herobanner .message-container");
   removeMessage(".featured-container .message-container");
+  const heroLoader = document.querySelector(".hero-loader ") as HTMLDivElement;
 
   const products = getFromSessionStorage(allProducts);
   const hero = getFromSessionStorage("herobanner");
-  console.log("hero", hero);
-  console.log("products", products);
 
-  const homeUrl = `${BASE_URL}/home`;
-  const productsUrl = `${BASE_URL}/products`;
+  if (products !== null && hero !== null) {
+    heroLoader.style.display = "none";
+    renderGridCategory(products);
+    renderFeatured(products);
+    renderHeroBanner(hero.hero_url);
+    lasyLoadImages();
+    editBackgroundImg();
 
-  spinner(".featured-container");
+    return;
+  } else {
+    const homeUrl = `${BASE_URL}/home`;
+    const productsUrl = `${BASE_URL}/products`;
 
-  const [homeResponse, productResponse] = await Promise.all([
-    fectData(homeUrl),
-    fectData(productsUrl),
-  ]);
+    spinner(".featured-container");
 
-  if (!homeResponse || typeof homeResponse === "string") {
-    const msg = "Failed to get background image, check for url misspelling.";
-    return showMessage("danger", msg, ".herobanner .message-container");
+    const [homeResponse, productResponse] = await Promise.all([
+      fectData(homeUrl),
+      fectData(productsUrl),
+    ]);
+
+    if (!homeResponse || typeof homeResponse === "string") {
+      const msg = "Failed to get background image, couble check the url.";
+      return showMessage("danger", msg, ".herobanner .message-container");
+    }
+
+    renderHeroBanner(homeResponse.hero_url);
+    if (!productResponse || typeof productResponse === "string") {
+      showMessage(
+        "danger",
+        "Sorry, an error happened. Please, try again later.",
+        ".featured-container .message-container"
+      );
+      return;
+    }
+
+    heroLoader.style.display = "none";
+
+    renderGridCategory(productResponse);
+    renderFeatured(productResponse);
+    lasyLoadImages();
+    editBackgroundImg();
+    saveToSessionStorage(allProducts, productResponse);
+    saveToSessionStorage("herobanner", homeResponse);
   }
-
-  renderHeroBanner(homeResponse.hero_url);
-  if (!productResponse || typeof productResponse === "string") {
-    showMessage(
-      "danger",
-      "Sorry, an error happened. Please, try again later.",
-      ".featured-container .message-container"
-    );
-    return saveToSessionStorage(allProducts, productResponse);
-  }
-
-  const heroLoader = document.querySelector(".hero-loader ") as HTMLDivElement;
-
-  heroLoader.style.display = "none";
-
-  renderGridCategory(productResponse);
-  renderFeatured(productResponse);
-  lasyLoadImages();
-  editBackgroundImg();
-  saveToSessionStorage(allProducts, productResponse);
-  saveToSessionStorage("herobanner", homeResponse);
 })();

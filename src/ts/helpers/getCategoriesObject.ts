@@ -1,5 +1,5 @@
-export const getCategoriesObject = (data: any) =>
-  data.reduce((acc: any, item: any) => {
+export const getCategoriesObject = (data: IProduct[]): ICategores =>
+  data.reduce((acc: any, item: IProduct) => {
     acc[item.category] = { item };
     return acc;
   }, {});

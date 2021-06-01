@@ -3,7 +3,7 @@ import { BASE_URL, allProducts } from "./utils/settings";
 import renderHeroBanner from "./elements/renderHerobanner";
 import renderFeatured from "./elements/renderFeatured";
 import { renderNavbar } from "./elements/renderNavbar";
-import { saveToSessionStorage } from "./utils/storage";
+import { saveToSessionStorage, getFromSessionStorage } from "./utils/storage";
 import { editBackgroundImg } from "./elements/renderHerobanner";
 import { spinner } from "./elements/spinner";
 import { fectData } from "./helpers/fetcData";
@@ -16,6 +16,11 @@ renderNavbar();
 (async () => {
   removeMessage(".herobanner .message-container");
   removeMessage(".featured-container .message-container");
+
+  const products = getFromSessionStorage(allProducts);
+  const hero = getFromSessionStorage("herobanner");
+  console.log("hero", hero);
+  console.log("products", products);
 
   const homeUrl = `${BASE_URL}/home`;
   const productsUrl = `${BASE_URL}/products`;
@@ -51,4 +56,5 @@ renderNavbar();
   lasyLoadImages();
   editBackgroundImg();
   saveToSessionStorage(allProducts, productResponse);
+  saveToSessionStorage("herobanner", homeResponse);
 })();

@@ -4,13 +4,12 @@ import { getTotalPrice, getTotalPricePerItem } from "../helpers/getTotalPrice";
 import { deleteItem } from "../helpers/deleteItem";
 import { getRoundNumber } from "../helpers/getRoundNumber";
 
-const removeItemFromCart = (cartItems: any) => {
+const removeItemFromCart = (cartItems: Icart) => {
   const deleteItems = document.querySelectorAll(".delete-icon");
 
   deleteItems.forEach((itemToDelete) => {
     const handleItemToDelete = (e: Event) => {
       const id = +(e.target as HTMLElement).attributes[1].value;
-      // const id = parseInt((e.target as HTMLElement).dataset.id);
       const updatedCartITems = deleteItem(cartItems, id);
       saveCartItemsToLocal(cart, updatedCartITems);
       renderCartItems();
@@ -41,7 +40,7 @@ export const renderCartItems = () => {
   </div>`);
   }
 
-  cartItems.map((item: any) => {
+  cartItems.map((item: Icart) => {
     const price = getRoundNumber(+item.product.price);
 
     cartItemsContainer.innerHTML += `
@@ -72,7 +71,7 @@ export const renderCartItems = () => {
                   <div class="qtySize-container d-flex flex-wrap flex-column w-100">
 
                     ${item.qtySize
-                      .map((itemSizes: any) => {
+                      .map((itemSizes: IqtySize) => {
                         return `
                     <div class="qtySize-container d-flex">
                       <p class="light-text flex-grow-1 align-text-bottom pr-2">Size ${itemSizes.size}</p>

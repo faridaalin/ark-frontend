@@ -34,6 +34,7 @@
     "@types/react-dom": "^17.0.5",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.1.0",
+    "fs": "0.0.1-security",
     "install": "^0.13.0",
     "jquery": "^3.5.1",
     "live-server": "^1.2.1",

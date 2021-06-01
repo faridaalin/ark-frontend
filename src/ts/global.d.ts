@@ -1,3 +1,6 @@
+type ImageObj = {
+  url: string;
+};
 interface IProduct {
   alt_text: string;
   brand: string;
@@ -6,13 +9,19 @@ interface IProduct {
   description: string;
   featured: boolean;
   id: number;
-  image: string | null;
+  image: null | ImageObj;
   image_url: string;
   price: number;
   published_at: string;
   rating: number | null;
   title: string;
   updated_at: string;
+}
+
+interface ICategores {
+  [key: string]: {
+    item: IProduct;
+  };
 }
 
 interface IHeroBanner {

@@ -1,4 +1,4 @@
-export const fectData = async (url: string, options?: any) => {
+export const fectData = async (url: string, options?: object) => {
   try {
     const response = options ? await fetch(url, options) : await fetch(url);
     if (!response.ok) {

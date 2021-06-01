@@ -3,14 +3,14 @@ import { saveCartItemsToLocal, getFromLocal } from "../utils/storage";
 import { addQty } from "../helpers/addQty";
 import { addSize } from "../helpers/addSize";
 
-export const addToCart = (product: any) => {
+export const addToCart = (product: IProduct) => {
   const addToCartBtn = document.querySelector(
     "#addToCart"
   ) as HTMLButtonElement;
   let localCart = getFromLocal(cart);
   addQty();
 
-  const showSuccessMessage = (itemToShow: any) => {
+  const showSuccessMessage = (itemToShow: IProduct) => {
     const productAdded = document.querySelector(
       ".product-added"
     ) as HTMLDivElement;
@@ -36,7 +36,7 @@ export const addToCart = (product: any) => {
     if (!selectedSize) return;
 
     const alreadyInCart = localCart.find(
-      (item: any) => item.product.id === product.id
+      (item: Icart) => item.product.id === product.id
     );
 
     if (!alreadyInCart) {
@@ -56,7 +56,7 @@ export const addToCart = (product: any) => {
       showSuccessMessage(product);
       saveCartItemsToLocal(cart, localCart);
     } else {
-      const item = localCart.find((item: any) => {
+      const item = localCart.find((item: Icart) => {
         return item.qtySize[0].size === selectedSize;
       });
 

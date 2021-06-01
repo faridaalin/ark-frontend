@@ -4,7 +4,7 @@ import { getTotalPrice, getTotalPricePerItem } from "../helpers/getTotalPrice";
 import { deleteItem } from "../helpers/deleteItem";
 import { getRoundNumber } from "../helpers/getRoundNumber";
 
-const removeItemFromCart = (cartItems: Icart) => {
+const removeItemFromCart = (cartItems: Icart[]) => {
   const deleteItems = document.querySelectorAll(".delete-icon");
 
   deleteItems.forEach((itemToDelete) => {

@@ -1,3 +1,3 @@
-export const deleteItem = (array: any, id: number) => {
-  return array.filter((item: any) => item.product.id !== id);
+export const deleteItem = (array: Icart[], id: number): Icart[] => {
+  return array.filter((item: Icart) => item.product.id !== id);
 };
